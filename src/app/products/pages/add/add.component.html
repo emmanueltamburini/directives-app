@@ -1,23 +1,28 @@
 <h1 class="mt-5">Add product</h1>
 <hr>
-<form>
+<form [formGroup]="form">
   <div class="row g-3 align-items-center mb-3">
     <div class="col-auto">
       <label class="col-form-label"> Name </label>
     </div>
     <div class="col-auto">
-      <input type="text" name="name" id="name" class="form-control">
+      <input formControlName='name' type="text" id="name" class="form-control">
     </div>
     <div class="col-auto">
-      <span class="form-text"> Este campo es requerido </span>
+      <span errMessage [message]="message" [color]="color" [valid]="!hasError('name')"></span>
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col">
-      <button class="btn btn-primary">Save</button>
+      <button (click)="changeMessage()" type="submit" class="btn btn-primary"> Save </button>
+    </div>
+    <div class="col">
+      <button (click)="changeColor()" class="btn btn-primary"> Change color </button>
     </div>
   </div>
 </form>
 
 <h3 class="mt-5"> Form </h3>
+<pre>Valid: {{form.value | json}}</pre>
+<pre>Valid: {{form.valid}}</pre>
