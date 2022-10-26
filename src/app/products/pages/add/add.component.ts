@@ -9,7 +9,7 @@ export class AddComponent {
 
   public color: string = 'red';
 
-  public message: string = 'message';
+  public message: string = 'This field is required';
 
   public form: FormGroup = this.formBuilder.group({
     name: ['', Validators.required]

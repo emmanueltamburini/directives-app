@@ -26,3 +26,11 @@
 <h3 class="mt-5"> Form </h3>
 <pre>Valid: {{form.value | json}}</pre>
 <pre>Valid: {{form.valid}}</pre>
+
+<div class="row mt-5" *customIf="form.valid">
+  <div class="col">
+    <div class="alert alert-primary">
+      Everything is OK
+    </div>
+  </div>
+</div>
